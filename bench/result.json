@@ -1,0 +1,115 @@
+{
+  "generatedAt": "2026-10-30T12:43:37.906Z",
+  "node": "v24.19.0",
+  "input": {
+    "file": "data/mesh.gltf",
+    "vertices": 6144,
+    "triangles": 12288,
+    "diagonal": 9.4401
+  },
+  "config": {
+    "targetRatio": 0.06,
+    "repeats": 5,
+    "hausdorffSamples": 1200
+  },
+  "coldStartMs": 1138.761,
+  "metrics": {
+    "parse": {
+      "samples": [
+        0.714,
+        0.724,
+        0.724,
+        0.997,
+        5.146
+      ],
+      "min": 0.714,
+      "median": 0.724,
+      "p95": 5.146,
+      "stddev": 1.746,
+      "relStddev": 241.19
+    },
+    "qemSimplify": {
+      "samples": [
+        80.152,
+        82.556,
+        89.684,
+        105.245,
+        114.899
+      ],
+      "min": 80.152,
+      "median": 89.684,
+      "p95": 114.899,
+      "stddev": 13.441,
+      "relStddev": 14.99
+    },
+    "clusteringBaseline": {
+      "samples": [
+        67.397,
+        69.595,
+        72.107,
+        75.643,
+        79.077
+      ],
+      "min": 67.397,
+      "median": 72.107,
+      "p95": 79.077,
+      "stddev": 4.181,
+      "relStddev": 5.8
+    },
+    "hausdorffQem": {
+      "samples": [
+        411.291,
+        415.08,
+        417.023,
+        417.157,
+        429.694
+      ],
+      "min": 411.291,
+      "median": 417.023,
+      "p95": 429.694,
+      "stddev": 6.196,
+      "relStddev": 1.49
+    },
+    "hausdorffClustering": {
+      "samples": [
+        417.521,
+        417.543,
+        419.26,
+        419.306,
+        420.083
+      ],
+      "min": 417.521,
+      "median": 419.26,
+      "p95": 420.083,
+      "stddev": 1.031,
+      "relStddev": 0.25
+    }
+  },
+  "output": {
+    "qem": {
+      "triangles": 736,
+      "vertices": 368,
+      "collapses": 5776
+    },
+    "clustering": {
+      "triangles": 898,
+      "vertices": 428,
+      "resolution": 19
+    },
+    "triangleReductionPct": 94.01
+  },
+  "quality": {
+    "qem": {
+      "meanPct": 0.3838,
+      "maxPct": 1.5939,
+      "p95Pct": 0.9425
+    },
+    "clustering": {
+      "meanPct": 0.6321,
+      "maxPct": 2.0338,
+      "p95Pct": 1.3235
+    },
+    "meanErrorRatio": 1.647,
+    "clusteringExtraTrianglesPct": 22.01
+  }
+}

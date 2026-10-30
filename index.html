@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mesh LOD Studio — QEM vs vertex clustering</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0d1117; color: #e6edf3;
+    font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+  #hud { position: fixed; top: 16px; left: 16px; padding: 14px 16px; width: 268px;
+    background: rgba(13,17,23,.82); border: 1px solid #30363d; border-radius: 10px;
+    backdrop-filter: blur(6px); }
+  h1 { font-size: 13px; margin: 0 0 2px; letter-spacing: .04em; text-transform: uppercase; color: #8b949e; }
+  .big { font-size: 26px; font-weight: 600; color: #58a6ff; letter-spacing: -.02em; }
+  .row { display: flex; justify-content: space-between; margin-top: 6px; color: #8b949e; }
+  .row b { color: #e6edf3; font-weight: 500; }
+  input[type=range] { width: 100%; margin: 10px 0 4px; accent-color: #58a6ff; }
+  .modes { display: flex; gap: 6px; margin-top: 8px; }
+  button { flex: 1; padding: 6px 8px; background: #161b22; color: #8b949e; cursor: pointer;
+    border: 1px solid #30363d; border-radius: 6px; font: inherit; }
+  button.on { background: #1f6feb22; border-color: #1f6feb; color: #58a6ff; }
+  #hint { position: fixed; bottom: 14px; left: 16px; color: #6e7681; font-size: 12px; }
+  #err { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #f85149; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app"></div>
+<div id="hud">
+  <h1>Mesh LOD Studio</h1>
+  <div class="big" id="ratio">6%</div>
+  <div class="row"><span>triangles</span><b id="tris">–</b></div>
+  <div class="row"><span>reduction</span><b id="red">–</b></div>
+  <div class="row"><span>simplify time</span><b id="ms">–</b></div>
+  <input id="slider" type="range" min="2" max="50" value="6" step="1" />
+  <div class="modes">
+    <button id="qem" class="on">QEM</button>
+    <button id="cluster">clustering</button>
+  </div>
+</div>
+<div id="hint">drag to orbit · scroll to zoom · slider sets the triangle budget</div>
+<div id="err"></div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
