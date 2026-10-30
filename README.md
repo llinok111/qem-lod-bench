@@ -1,10 +1,10 @@
-# mesh-lod-studio
+# qem-lod-bench
 
 **One-line promise:** a 12,288-triangle mesh is reduced to **736 triangles (−94.0%)** with **0.384% mean surface error** (of the bounding-box diagonal) in **93.7 ms** — while a grid-vertex-clustering baseline given **22% more triangles** (898) lands at 0.632%, i.e. **1.65× worse**.
 
 Upstream: none
 
-This is an original implementation of quadric-error-metric (QEM) edge-collapse simplification plus a vertex-clustering baseline, written from scratch. three.js r169 is used only as the renderer.
+This is an original implementation of quadric-error-metric (QEM) edge-collapse simplification plus a vertex-clustering baseline, written from scratch. three.js r169 is used only as the renderer. It is a head-to-head, error-measured benchmark harness (not just a simplifier): both methods are budgeted to the same target and scored by the same seeded symmetric-Hausdorff routine.
 
 ## What it is
 
