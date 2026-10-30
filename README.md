@@ -1,6 +1,6 @@
 # qem-lod-bench
 
-**One-line promise:** a 12,288-triangle mesh is reduced to **736 triangles (−94.0%)** with **0.384% mean surface error** (of the bounding-box diagonal) in **93.7 ms** — while a grid-vertex-clustering baseline given **22% more triangles** (898) lands at 0.632%, i.e. **1.65× worse**.
+**One-line promise:** a 12,288-triangle mesh is reduced to **736 triangles (−94.0%)** with **0.384% mean surface error** (of the bounding-box diagonal) in **94.6 ms** — while a grid-vertex-clustering baseline given **22% more triangles** (898) lands at 0.632%, i.e. **1.65× worse**.
 
 Upstream: none
 
@@ -37,7 +37,7 @@ rm -rf data && node tools/gen-sample.mjs
 | clustering output | 898 tris (+22.01% budget), mean error 0.6321% |
 | quality ratio | clustering **1.647× worse** at a larger budget |
 | QEM simplify time | median **94.608 ms**, min 83.101, p95 105.805, sd 9.152 (rel. 9.67%) |
-| cold start | 1,097.213 ms (first full pipeline run, includes module JIT) |
+| cold start | 1097.213 ms (first full pipeline run, includes module JIT) |
 
 Error is measured by sampling 600 points per direction (1,200 total) area-weighted on the original and on the simplified surface, then taking the symmetric max/mean of nearest-triangle distances, normalised by the original bounding-box diagonal. Sampling is seeded, so the number is reproducible.
 
