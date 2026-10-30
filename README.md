@@ -36,12 +36,12 @@ rm -rf data && node tools/gen-sample.mjs
 | QEM mean error | **0.3838%** of diagonal (p95 0.9425%, max 1.5939%) |
 | clustering output | 898 tris (+22.01% budget), mean error 0.6321% |
 | quality ratio | clustering **1.647× worse** at a larger budget |
-| QEM simplify time | median **93.727 ms**, min 84.822, p95 104.240, sd 6.741 (rel. 7.19%) |
-| cold start | 1,050.382 ms (first full pipeline run, includes module JIT) |
+| QEM simplify time | median **94.608 ms**, min 83.101, p95 105.805, sd 9.152 (rel. 9.67%) |
+| cold start | 1,097.213 ms (first full pipeline run, includes module JIT) |
 
 Error is measured by sampling 600 points per direction (1,200 total) area-weighted on the original and on the simplified surface, then taking the symmetric max/mean of nearest-triangle distances, normalised by the original bounding-box diagonal. Sampling is seeded, so the number is reproducible.
 
-`parse` in `bench/result.json` shows a 160% relative stddev because its first sample (3.659 ms) absorbs V8 JIT warm-up while later samples sit at 0.70–0.72 ms. It is not part of the claim; the claimed metric (QEM simplify) is at 7.19%.
+`parse` in `bench/result.json` shows a 166.84% relative stddev: its five samples are 0.706, 0.706, 0.718, 0.941 and 3.755 ms, so one slow first pass dominates a sub-millisecond median. It is not part of the claim; the claimed metric (QEM simplify) is at 9.67%.
 
 ## Why QEM beats clustering here
 
